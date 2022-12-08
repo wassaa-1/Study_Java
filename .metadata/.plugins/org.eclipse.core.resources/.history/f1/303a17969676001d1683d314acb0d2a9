@@ -1,0 +1,10 @@
+package step05oop.step01class;
+
+public class MouseTest {
+
+	public static void main(String[] args) {
+		Mouse jerry = new Mouse();
+		System.out.println(jerry);
+	}
+
+}

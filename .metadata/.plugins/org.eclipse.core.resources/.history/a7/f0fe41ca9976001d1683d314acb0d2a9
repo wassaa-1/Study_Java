@@ -1,0 +1,16 @@
+package step05oop.step01class;
+
+public class MouseTest2 {
+
+	public static void main(String[] args) {
+		Mouse jerry = new Mouse();
+		jerry.age = 73;
+		jerry.name = "제리";
+		jerry.address = "뉴욕시";
+//		jerry.color = "갈색"; // 동적으로 추가 불가. 추가하려면 Mouse 클래스 가서 추가해야함
+		
+		new Mouse(94, "미키마우스", "미국");
+		
+	}
+
+}

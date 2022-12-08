@@ -1,0 +1,20 @@
+package step05oop.step03accessmodifier;
+
+public class Student {
+	int id;
+	private String name;
+	int grade;
+	String address;
+	int age;
+	
+	public Student() {}
+	
+	public Student(String name) {
+		this.name = name;
+	}
+	
+	public String naming(String name) {
+		this.name = name;
+		return name;
+	}
+}

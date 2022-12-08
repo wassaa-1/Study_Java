@@ -1,0 +1,9 @@
+package step05oop.step03accessmodifier;
+
+public class Student {
+	int id;
+	String name;
+	int grade;
+	String address;
+	int age;
+}

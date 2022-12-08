@@ -1,0 +1,17 @@
+package step03condition;
+
+public class Basic5Switch {
+
+	public static void main(String[] args) {
+		String fruit = "apple";
+		String colorOfFruit;
+		switch(fruit) {
+		case "apple":
+			colorOfFruit = "red";
+		case "banana":
+			colorOfFruit = "yellow";
+		}
+		System.out.println(colorOfFruit);
+	}
+
+}

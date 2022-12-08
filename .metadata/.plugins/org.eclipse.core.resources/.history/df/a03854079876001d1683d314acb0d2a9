@@ -1,0 +1,17 @@
+package step05oop.step01class;
+
+public class Mouse {
+	int age;
+	String name;
+	String country;
+	String religion;
+	String address;
+	
+	void sing() {
+		System.out.println("찍찍?!");
+	}
+	
+	public Mouse(){
+		System.out.println("Mouse() 호출");
+	}
+}
