@@ -30,7 +30,7 @@ public class Mouse {
 	}
 	
 	public Mouse(String name) {
-		this.name = name
+		this.name = name;
 	}
 	// 일반 메서드도 오버로딩 가능(문법적으로 가능)
 	// 두 수의 합이 정수 타입인 값을 반환하는 메서드 add(int a, int b)

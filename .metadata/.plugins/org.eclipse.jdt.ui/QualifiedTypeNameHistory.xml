@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="java.awt.dnd.DropTargetContext"/>
+    <fullyQualifiedTypeName name="step05oop.step06poly.step02param.Cat"/>
+</qualifiedTypeNameHistroy>
