@@ -1,7 +1,10 @@
 package step08oopcafe;
 
+import java.time.LocalDateTime;
+
 import step08oopcafe.cafe.CafeManager;
 import step08oopcafe.cafe.hall.Customer;
+import step08oopcafe.cafe.hall.OrderInfo;
 
 /**
  * 일반적인 흐름
@@ -24,7 +27,9 @@ public class CafeApplication {
 		// 카페 매장
 		// CafeApplication을 실행하는 건 매장 오픈
 		
-		System.out.println(CafeManager.getInstance());
+		Customer yoo = CafeManager.getInstance().getCustomers().get(0);
+		yoo.checkMenu();
+	
 	}
 
 }

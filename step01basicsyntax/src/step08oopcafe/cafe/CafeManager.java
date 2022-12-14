@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import lombok.Getter;
+import lombok.ToString;
 import step08oopcafe.cafe.bar.Barista;
 import step08oopcafe.cafe.bar.Recipe;
 import step08oopcafe.cafe.hall.Customer;
@@ -24,12 +26,14 @@ import step08oopcafe.cafe.hall.Staff;
  * 5. 손님들 - List<Customer> customers; 
  * 
  */
+@Getter
+@ToString
 public class CafeManager {
 	private List<Staff> staffs;
 	private List<Barista> baristas;
 	private Menu menu;
-	private List<Recipe> recipes;
-	private List<Customer> customers;
+	private List<Recipe> recipes = new ArrayList<>();
+	private List<Customer> customers = new ArrayList<>();
 	
 	private static CafeManager cafeManager = new CafeManager(); // 고유한 인스턴스
 
@@ -37,22 +41,21 @@ public class CafeManager {
 	private CafeManager() {
 		// 카페 오픈 시 기본 세팅
         // 주문 담당자(Staff, Barista)들은 하나의 주문에 있어서 담당이 바뀌면 안됨
+        System.out.println("여기 호출");
         // Staff 리스트
         Staff kang = new Staff();
         Staff kim = new Staff();
         Staff koo = new Staff();
 
         Staff[] staffList = {kang, kim, koo};
-        List<Staff> staffs = new ArrayList<>(Arrays.asList(staffList));
-        this.staffs = staffs;
+        staffs = new ArrayList<>(Arrays.asList(staffList));
 
         // Barista 리스트
         Barista son = new Barista();
         Barista seo = new Barista();
 
         Barista[] baristaList = {son, seo};
-        List<Barista> baristas = new ArrayList<>(Arrays.asList(baristaList));
-        this.baristas = baristas;
+        baristas = new ArrayList<>(Arrays.asList(baristaList));
 
         // 메뉴판 세팅
         MenuItem item1 = new MenuItem("아이스 아메리카노", 2000, 1, 99);
@@ -109,12 +112,6 @@ public class CafeManager {
 		return cafeManager;
 	}
 
-	@Override
-	public String toString() {
-		return "CafeManager [staffs=" + staffs + ", baristas=" + baristas + ", menu=" + menu + ", recipes=" + recipes
-				+ ", customers=" + customers + "]";
-	}
-	
 	
 }
 

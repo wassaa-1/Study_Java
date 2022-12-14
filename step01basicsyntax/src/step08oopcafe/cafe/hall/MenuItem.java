@@ -1,5 +1,8 @@
 package step08oopcafe.cafe.hall;
 
+import lombok.Getter;
+import lombok.ToString;
+
 /**
  * Menu에 포함되는 항목 클래스
  * 
@@ -10,6 +13,8 @@ package step08oopcafe.cafe.hall;
  * 4. 인기도 - popular
  *
  */
+@ToString
+@Getter
 public class MenuItem {
 	private String name;
 	private int price;

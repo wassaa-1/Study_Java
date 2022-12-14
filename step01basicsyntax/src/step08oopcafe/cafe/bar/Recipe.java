@@ -2,6 +2,8 @@ package step08oopcafe.cafe.bar;
 
 import java.util.List;
 
+import lombok.Getter;
+
 /**
  * 바리스타가 이용하는 클래스
  * 
@@ -10,6 +12,7 @@ import java.util.List;
  * 1. 음료를 제조하기 위한 재료 리스트 - List<String> materials
  * 2. 제조법 - String description
  */
+@Getter
 public class Recipe {
 	private String name;
 	private List<String> materials;

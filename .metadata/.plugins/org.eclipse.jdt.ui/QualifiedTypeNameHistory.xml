@@ -3,4 +3,20 @@
     <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="java.awt.dnd.DropTargetContext"/>
     <fullyQualifiedTypeName name="step05oop.step06poly.step02param.Cat"/>
+    <fullyQualifiedTypeName name="step08oopcafe.cafe.bar.Barista"/>
+    <fullyQualifiedTypeName name="step08oopcafe.cafe.CafeManager"/>
+    <fullyQualifiedTypeName name="step05oop.step06poly.step02param.Person"/>
+    <fullyQualifiedTypeName name="step08oopcafe.common.Person"/>
+    <fullyQualifiedTypeName name="step08oopcafe.cafe.hall.CustomerInfo"/>
+    <fullyQualifiedTypeName name="step08oopcafe.cafe.hall.MenuItem"/>
+    <fullyQualifiedTypeName name="step08oopcafe.cafe.hall.Menu"/>
+    <fullyQualifiedTypeName name="step08oopcafe.cafe.hall.OrderInfo"/>
+    <fullyQualifiedTypeName name="step08oopcafe.cafe.hall.OrderInfo.Builder"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="step08oopcafe.cafe.CafeManagementSystem"/>
+    <fullyQualifiedTypeName name="lombok.Setter"/>
+    <fullyQualifiedTypeName name="lombok.ToString"/>
+    <fullyQualifiedTypeName name="lombok.Getter"/>
+    <fullyQualifiedTypeName name="step08oopcafe.cafe.bar.DrinkProduct"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
 </qualifiedTypeNameHistroy>
