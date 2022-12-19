@@ -1,0 +1,11 @@
+step02(todomvc)에서의 한계점
+1. 메인 화면(App.java)에 해당하는 App.java에서 데이터를 파싱(parsing), 연산, 출력 처리를 모두 다 하고 있음.
+-> GodClass
+
+Step03
+1. 읽어들인 데이터를 parsing해주는 코드를 별도의 클래스로 분리 - TodoTSVParser.java로 분리(Seperate of Concern, 관심사의 분리)
+-> TSV(Tab Separated Value)
+Parser - 파싱해주는 역할?, 파싱해주는 친구
+2. 분리한 클래스가 위치한 패키지명은 data로 data 접근 역할에 해당하는 부분
+3. App.java에서 조회(전체 Todo, 할일 번호에 해당하는 하나의 Todo 데이터 조회)에 해당하는 부분들도 별도의 메서드로 분리
+
