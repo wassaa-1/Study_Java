@@ -9,17 +9,51 @@ import todomvc.todo.model.Todo;
 public class TodoDatabase {
 	private static List<Todo> todoDatabase = new ArrayList<>();
 
-	static { // static block, í”„ë¡œê·¸ë¨ ì‹¤í–‰ ì‹œ í•œ ë²ˆë§Œ ì‹¤í–‰ë¨ 
-        todoDatabase.add(new Todo(1, "ìˆ™ì œí•˜ê¸°", LocalDate.of(2022, 4, 5), "ìˆ˜í•™, ì˜ì–´ ìˆ™ì œ"));
-        todoDatabase.add(new Todo(2, "ì¡°ê¹…í•˜ê¸°", LocalDate.of(2022, 5, 7), "ê³µì›ì—ì„œ 1ì‹œê°„ ë™ì•ˆ ì¡°ê¹…ì„ í•œë‹¤."));
-        todoDatabase.add(new Todo(3, "ë¹¨ë˜í•˜ê¸°", LocalDate.of(2022, 4, 4), "ë¹¨ë˜ë¥¼ ëª¨ì•„ì„œ ì„¸íƒê¸°ë¥¼ ëŒë¦°ë‹¤."));
-        todoDatabase.add(new Todo(4, "í”¼ì•„ë…¸", LocalDate.of(2022, 4, 7), "í•™ì›ì—ì„œ í”¼ì•„ë…¸ë¥¼ ì—°ìŠµí•œë‹¤"));
-        todoDatabase.add(new Todo(5, "ê°•ì•„ì§€ ë°¥ì£¼ê¸°", LocalDate.of(2022, 4, 7), "ê°•ì•„ì§€ì—ê²Œ ì‚¬ë£Œë¥¼ ì¤€ë‹¤."));
+	static { // static block, ÇÁ·Î±×·¥ ½ÇÇà ½Ã ÇÑ ¹ø¸¸ ½ÇÇàµÊ 
+        todoDatabase.add(new Todo(1, "¼÷Á¦ÇÏ±â", LocalDate.of(2022, 4, 5), "¼öÇĞ, ¿µ¾î ¼÷Á¦"));
+        todoDatabase.add(new Todo(2, "Á¶±ëÇÏ±â", LocalDate.of(2022, 5, 7), "°ø¿ø¿¡¼­ 1½Ã°£ µ¿¾È Á¶±ëÀ» ÇÑ´Ù."));
+        todoDatabase.add(new Todo(3, "»¡·¡ÇÏ±â", LocalDate.of(2022, 4, 4), "»¡·¡¸¦ ¸ğ¾Æ¼­ ¼¼Å¹±â¸¦ µ¹¸°´Ù."));
+        todoDatabase.add(new Todo(4, "ÇÇ¾Æ³ë", LocalDate.of(2022, 4, 7), "ÇĞ¿ø¿¡¼­ ÇÇ¾Æ³ë¸¦ ¿¬½ÀÇÑ´Ù"));
+        todoDatabase.add(new Todo(5, "°­¾ÆÁö ¹äÁÖ±â", LocalDate.of(2022, 4, 7), "°­¾ÆÁö¿¡°Ô »ç·á¸¦ ÁØ´Ù."));
     }
 	
 	public static List<Todo> getTododatabase() {
         return todoDatabase;
     }
 	
+	// id°¡ 2¹øÀÎ todo µ¥ÀÌÅÍ Á¶È¸
+	// SELECT * FROM todo WHERE id = 2;
+	public Todo findById(int todoNumber) {
+		// DB»ó¿¡¼­ id¸¦ ºñ±³ÇÏ´Â Ã³¸®¸¦ Java ÄÚµå·Î Ç¥Çö
+		for (Todo todo: todoDatabase) {
+			if (todo.getId() == todoNumber) {
+				return todo;
+			}
+		}
+		return null;
+	}
+
+	public boolean save(Todo newTodo) {
+		int nextId = todoDatabase.size() + 1;
+		newTodo.setId(nextId);
+		
+		return todoDatabase.add(newTodo);
+	}
+	
+	public Todo updateById(int todoNumber, Todo newTodo) {
+		for(Todo todo: todoDatabase) {
+			if (todo.getId() == todoNumber) {
+				return todoDatabase.set(todoNumber, newTodo);
+			}
+		}
+		return null;
+	}
+	
+	public Todo deleteById(int id) {
+		for (Todo todo: todoDatabase) {
+			if(todo.getId()==id) return todoDatabase.remove(id);
+		}
+		return null;
+	}
 	
 }

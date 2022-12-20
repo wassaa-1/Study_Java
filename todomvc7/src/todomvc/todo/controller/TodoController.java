@@ -1,6 +1,7 @@
 package todomvc.todo.controller;
 
 import java.nio.file.Path;
+import java.sql.SQLException;
 import java.util.List;
 
 import todomvc.todo.model.Todo;
@@ -43,11 +44,22 @@ public class TodoController {
 	}
 
 	public void save(Todo newTodo) {
-		boolean result = service.save(newTodo);
+		try {
+			int result = service.save(newTodo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	
-	
+	public void updateById(int todoNumber, Todo updateTodo) {
+		int result = service.updateById(todoNumber, updateTodo);
+	}
+
+	public void deleteById(int todoNumber) {
+		int result = service.deleteById(todoNumber);
+		
+	}
 
 }
 

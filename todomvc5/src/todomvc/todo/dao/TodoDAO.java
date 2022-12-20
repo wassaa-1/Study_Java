@@ -6,19 +6,29 @@ import todomvc.todo.data.TodoDatabase;
 import todomvc.todo.model.Todo;
 
 /**
- * Data Access Object - ë°ì´í„°(DB)ì— ì ‘ê·¼í•˜ëŠ” í´ëž˜ìŠ¤(Object, ê°ì²´)
- * TodoDatabase(DB)ì—ê²Œ ì ‘ê·¼í•´ì„œ ë°ì´í„° ì¡°íšŒí•´ì˜¤ëŠ” ì—­í• 
+ * Data Access Object - µ¥ÀÌÅÍ(DB)¿¡ Á¢±ÙÇÏ´Â Å¬·¡½º(Object, °´Ã¼)
+ * TodoDatabase(DB)¿¡°Ô Á¢±ÙÇØ¼­ µ¥ÀÌÅÍ Á¶È¸ÇØ¿À´Â ¿ªÇÒ
  * 
- * TodoDAO.java -> TodoDatabase.javaì— ì ‘ê·¼
+ * TodoDAO.java -> TodoDatabase.java¿¡ Á¢±Ù
  */
 public class TodoDAO {
 	private final TodoDatabase todoDatabase;
-
+	
 	public TodoDAO() {
 		todoDatabase = new TodoDatabase();
 	}
-	
-	public List<Todo> findAll(){
-		return todoDatabase.getTododatabase();
+
+	public List<Todo> findAll() {
+		return TodoDatabase.getTododatabase();
 	}
+
+	public Todo findById(int todoNumber) {
+		return todoDatabase.findById(todoNumber);
+	}
+
+	public boolean save(Todo newTodo) {
+		return todoDatabase.save(newTodo);
+	}
+	
+	
 }

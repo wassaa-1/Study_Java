@@ -8,6 +8,12 @@ public class Todo {
 	private LocalDate dueDate;
 	private String description;
 
+	
+	
+	public Todo() {
+		super();
+	}
+
 	public Todo(int id, String title, LocalDate dueDate, String description) {
 		super();
 		this.id = id;

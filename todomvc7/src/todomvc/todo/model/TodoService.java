@@ -1,5 +1,6 @@
 package todomvc.todo.model;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import todomvc.todo.dao.TodoDAO;
@@ -30,8 +31,16 @@ public class TodoService {
 		return todo;
 	}
 
-	public boolean save(Todo newTodo) {
+	public int save(Todo newTodo) throws SQLException {
 		return todoDAO.save(newTodo);
+	}
+
+	public int updateById(int todoNumber, Todo updateTodo) {
+		return todoDAO.updateById(todoNumber, updateTodo);
+	}
+
+	public int deleteById(int todoNumber) {
+		return todoDAO.deleteById(todoNumber);
 	}
 
 }
