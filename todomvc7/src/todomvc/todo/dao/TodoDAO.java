@@ -126,30 +126,36 @@ public class TodoDAO {
 		
 		return affectedRows;
 	}
-
-	public int updateById(int todoNumber, Todo updateTodo) {
-		String updateQuery = "UPDATE todo SET title=?, due_date=?, description=? WHERE id=?";
-		int affectedRows = 0;
-		try(Connection con = DBUtils.getConnection();
-			PreparedStatement pstmt = con.prepareStatement(updateQuery);
-			) {
-			pstmt.setString(1, updateTodo.getTitle());
-			pstmt.setString(2, updateTodo.getDueDate().toString());
-			pstmt.setString(3, updateTodo.getDescription());
-			pstmt.setInt(4, todoNumber);
-			affectedRows = pstmt.executeUpdate();
-		} catch(Exception e) {
-			e.printStackTrace();
+	
+	// Java 9 버전 이후 향상된 try-with-resources
+		// try 블럭({ })의 소괄호() 내에서 초기화하지 않아도 됨
+		public int updatedById(int id, Todo newTodo) throws SQLException {
+			final String updateQuery = "UPDATE todo SET title = ?, description = ?, due_date = ? WHERE id = ?";
+			
+			final Connection con = DBUtils.getConnection(); // Local variable con defined in an enclosing scope must be final or effectively final
+			final PreparedStatement pstmt = con.prepareStatement(updateQuery);
+			int result = 0;
+			
+			try(con; pstmt) {			
+				pstmt.setString(1, newTodo.getTitle());
+				pstmt.setString(2, newTodo.getDueDate().toString());
+				pstmt.setString(3, newTodo.getDescription());
+				pstmt.setInt(4, id);
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			return result;
 		}
-		return affectedRows;
-	}
 
-	public int deleteById(int todoNumber) {
+	public int deleteById(int todoNumber) throws SQLException {
 		String deleteQuery = "DELETE FROM todo WHERE id=?";
 		int affectedRows = 0;
-		try(Connection con = DBUtils.getConnection();
-			PreparedStatement pstmt = con.prepareStatement(deleteQuery);
-			) {
+		Connection con = DBUtils.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(deleteQuery);
+		try(con; pstmt) {
 			pstmt.setInt(1, todoNumber);
 			affectedRows = pstmt.executeUpdate();
 		} catch(Exception e) {
